@@ -1,11 +1,14 @@
-GreenFrogTodoBundle
+GreenFrogTodoBundle Sandbox
 ===================
 
-This is the sandbox WITHOUT vendors
+**Note**: This is the sandbox WITHOUT vendors
 
-. First, you need to Configure your app/config/parameters.ini
+Installation
+-------------
 
-. Install vendors (ALL vendors are in the deps file, look in `deps.dist` if you start by a symfony with vendors)
+. First, you need to Configure your ``app/config/parameters.ini``
+
+. Install vendors (ALL vendors are in the deps file, look in ``deps.dist`` if you start by a symfony with vendors)
 
 ``php bin/vendors install --reinstall``
 
