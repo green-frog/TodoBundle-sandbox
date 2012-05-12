@@ -1,0 +1,41 @@
+{% extends 'GreenFrogTodoBundle::layout.html.twig' %}
+{% set adm = is_granted('ROLE_SUPER_ADMIN') %}
+
+{% block title %}
+Home - Todo App
+{% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+<script type="text/javascript" src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/greenfrogtodo/js/jquery.editable-1.3.3.js') }}"></script>
+{% endblock %}
+
+{# All flashs type #}
+{% block flash %}
+{% for key, value in app.session.getFlashes() %}
+    <div class="alert alert-{{ key }}"> 
+        <a class="close" data-dismiss="alert">×</a>
+        {{ value|raw }}
+    </div> 
+{% endfor %}
+{% endblock %}
+
+{% block body %}
+{# NOTE: tasks var is in fact users vars !! #}
+{% for user in tasks %}
+<section id="user-{{ user.id }}" class="clearfix">
+    <h2>{% if loop.length != 1 %}{{ user.username }} {% endif %}tasks</h2>
+    {% for task in user.tasks %}
+    <div class="span5" id="task-{{ task.id }}">
+        <h3><input type="checkbox" id="taskcb-{{ task.id }}" class="taskcb" title="Task done !" value="" {% if task.active %}checked="checked" {% endif %}/> <span class="editable" id="tasktitle-{{ task.id }}">{{ task.title }}</span> <i></i> {% if adm %}<a class="taskdel btn btn-mini btn-danger" id="taskdel-{{ task.id }}"><b class="icon-remove icon-white"></b> Delete</a>{% endif %}</h3>
+{# TODO : progressbar ? #}
+<!--<div class="progress progress-success progress-striped">
+<div class="bar" style="width: {{ task.progress }}%"></div>
+</div>-->
+    </div>
+    {% endfor %}
+</section>
+{% endfor %}
+
+{% endblock %}

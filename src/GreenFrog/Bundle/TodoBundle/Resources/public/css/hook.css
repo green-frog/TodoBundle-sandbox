@@ -1,0 +1,21 @@
+/* 
+    Document   : hook
+    Created on : 26 avr. 2012, 21:30:57
+    Author     : ref4web
+    Description:
+        Some hook of Twitter Bootstrap classes
+*/
+
+.navbar .btn-navbar-hook { 
+    margin: 0;
+}
+
+.sidebar-nav-fixed {
+    position: fixed;
+    right: 20px;
+    top: 40px;
+    z-index: 1020;
+}
+.select-navbar-hook {
+    margin-bottom: 0;
+}
