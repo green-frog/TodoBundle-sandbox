@@ -6,22 +6,46 @@ GreenFrogTodoBundle Sandbox
 Installation
 -------------
 
-. First, you need to Configure your ``app/config/parameters.ini``
+##### First, you need to Create and Configure your ``app/config/parameters.ini``
 
-. Install vendors (ALL vendors are in the deps file, look in ``deps.dist`` if you start by a symfony with vendors)
+##### Install vendors (ALL vendors are in the deps file, look in ``deps.dist`` if you start by a symfony with vendors)
 
-``php bin/vendors install --reinstall``
+``` bash
+php bin/vendors install --reinstall
+```
 
-. Now install assets with symlink
+##### Now install assets
 
-``php app/console assets:install web/ --symlink``
+``` bash
+php app/console assets:install web/ --symlink``
+```
 
-. Generate database, entities and load fixtures
+``` bash
+php app/console assets:dump
+```
 
-``php app/console doctrine:database:create``
+##### Generate database, entities and load fixtures
 
-``php app/console doctrine:schema:update --force``
+``` bash
+php app/console doctrine:database:create``
+```
 
-``php app/console doctrine:fixtures:load``
+``` bash
+php app/console doctrine:schema:update --force``
+```
 
-. This is ready !
+``` bash
+php app/console doctrine:fixtures:load``
+```
+
+##### This is ready !
+
+Built-in 2 accounts
+
+    Username : user
+    Password : test
+    Role : ROLE_USER
+
+    Username : admin
+    Password : test
+    Role : ROLE_SUPER_ADMIN

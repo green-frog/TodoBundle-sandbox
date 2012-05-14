@@ -10,19 +10,15 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    {#
     {% stylesheets
-        '@GreenFrogTodoBundle/Resources/public/css/bootstrap.min.css'
-        '@GreenFrogTodoBundle/Resources/public/css/bootstrap-responsive.min.css'
-        '@GreenFrogTodoBundle/Resources/public/css/hook.css'
+        'bundles/greenfrogtodo/css/bootstrap.min.css'
+        'bundles/greenfrogtodo/css/bootstrap-responsive.min.css'
+        'bundles/greenfrogtodo/css/hook.css'
+        filter="cssrewrite"
         output='css/main.css'
     %}
     <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
-    #}
-    <link href="{{ asset('bundles/greenfrogtodo/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('bundles/greenfrogtodo/css/bootstrap-responsive.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('bundles/greenfrogtodo/css/hook.css') }}" rel="stylesheet">
     {% block stylesheets %}{% endblock %}
     <style type="text/css">
       body {
